@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+
+
+}
+#root{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.App{
+    background: red;
+    width: 65vw;
+    height: 45vw;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+
+
+}
+.App div{
+    width: 30vw;
+    height: 20vh;
+    border: 2px solid green;
+    display: flex;
+    justify-content: space-between;
+    /*align-items: center;*/
+    flex-wrap: wrap;
+
+}
+.App div img{
+    width: 150px;
+    height: 138px;
+
+}
+.App div h1,h2,h3{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+}
