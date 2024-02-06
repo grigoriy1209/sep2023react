@@ -1,4 +1,4 @@
-import {PostsComponent} from "./posts/PostsComponent";
+import {PostsComponent} from "./components/Posts/PostsComponent";
 import {useState} from "react";
 
 const App = () => {
@@ -15,7 +15,12 @@ const App = () => {
             <hr/>
             <h1>Post Component Info</h1>
             {
-                post && <h2>ID:{post.id}{<br/>} UserId:{post.userId}<br/>Body:{post.body}</h2>
+                post &&(
+                    <div><h2>
+                        ID:{post.id}{<br/>}
+                        UserId:{post.userId}<br/>
+                        Body:{post.body}
+                    </h2></div>)
             }
 
         </div>

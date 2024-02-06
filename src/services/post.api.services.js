@@ -1,12 +1,10 @@
 import axios from "axios";
+import {baseURL} from "../constants/url";
 
-const axiosInstance=axios.create({
-    baseURL:'https://jsonplaceholder.typicode.com',
-    headers:{}
-});
+const axiosInstance=axios.create({baseURL})
 
-const getAllPosts=()=> {
-    return axiosInstance.get('/posts')
+
+
+export {
+    axiosInstance
 }
-
-export {getAllPosts}
