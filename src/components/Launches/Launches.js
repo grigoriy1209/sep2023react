@@ -1,14 +1,15 @@
-import {Launch} from "../launch/Launch";
+import {Launch} from "../Launch/Launch";
 import {useEffect, useState} from "react";
 
 import {axiosService} from "../services/axiosService";
+import {urls} from "../constans/urls";
 
 const Launches = () => {
 
     const [launches, setLaunches] = useState([])
 
     useEffect(() => {
-       axiosService('/launches')
+       axiosService(urls.launches.base)
             .then(({data}) => {const filtered = data.filter(value => value.launch_year !=='2020');
                 setLaunches(filtered)})
     }, []);

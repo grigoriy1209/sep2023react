@@ -1,4 +1,5 @@
 import axios from "axios"
+import {baseURL} from "../constans/urls";
 
-let axiosService= axios.create({baseURL:'https://api.spacexdata.com/v3'});
+let axiosService= axios.create({baseURL});
 export {axiosService}
