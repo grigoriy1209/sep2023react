@@ -7,17 +7,19 @@ const CarsContainer = () => {
     const [cars, setCars] = useState([])
     const [trigger, setTrigger] = useState(null)
     const [carForUpdate, setCarForUpdate] = useState(null)
-    const [handleDelete, setHandleDelete] = useState(null)
+
 
     useEffect(() => {
         carServices.getAll().then(({data})=>setCars(data))
     }, [trigger]);
+    const changeTrigger=()=>{
+        setTrigger(prev=>!prev)
+    }
     return (
         <div>
-                <CarForm setTrigger={setTrigger} carForUpdate={carForUpdate} setCarForUpdate={setCarForUpdate}
-                         handleDelete={handleDelete} setHandleDelete={setHandleDelete}/>
+                <CarForm changeTrigger={changeTrigger} carForUpdate={carForUpdate} setCarForUpdate={setCarForUpdate}/>
                  <hr/>
-                <Cars cars={cars} setCarForUpdate={setCarForUpdate}/>
+                <Cars cars={cars} setCarForUpdate={setCarForUpdate} changeTrigger={changeTrigger}/>
         </div>
     );
 };

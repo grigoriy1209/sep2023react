@@ -2,7 +2,7 @@ import {useForm} from "react-hook-form";
 import {useEffect} from "react";
 
 import {carServices} from "../services/carServices";
-const CarForm = ({setTrigger, carForUpdate,setCarForUpdate,setHandleDelete}) => {
+const CarForm = ({changeTrigger, carForUpdate,setCarForUpdate,}) => {
     const {reset, register,handleSubmit,formState:{isValid,errors},setValue} = useForm({
         mode:'all'
     });
@@ -12,45 +12,26 @@ const CarForm = ({setTrigger, carForUpdate,setCarForUpdate,setHandleDelete}) => 
             setValue('price',carForUpdate.price,{shouldValidate:true})
             setValue('year',carForUpdate.year  ,{shouldValidate:true})
         }
-    }, [carForUpdate]);
+    }, [carForUpdate,setValue]);
 
     const save =async (car)=>{
        await carServices.create(car)
-        setTrigger(prev =>!prev)
+        changeTrigger()
         reset()
     }
     const update = async (car) =>{
-        if (carForUpdate && carForUpdate.id && car){
+
           await carServices.updateById(carForUpdate.id ,car)
+        changeTrigger()
             setCarForUpdate(null);
-
-            setValue('brand', car.brand, { shouldValidate: true });
-            setValue('price', car.price, { shouldValidate: true });
-            setValue('year', car.year, { shouldValidate: true });
-        }
-        else {
-            await carServices.create(car)
-        }
-    }
-
-    const deleteCar = async (car)=>{
-        if (carForUpdate && carForUpdate.id){
-            await carServices.deleteById(carForUpdate.id)
-            setCarForUpdate(null)
-
-            setValue('brand', car.brand, { shouldValidate: true });
-            setValue('price', car.price, { shouldValidate: true });
-            setValue('year', car.year, { shouldValidate: true });
-        }
-    }
-    const handleSubmitForm = async (car)=>{
-        await update(car)
-        await save(car)
-        await deleteCar(car)
+          reset()
 
     }
+
+
+
     return (
-        <form onSubmit={handleSubmit(handleSubmitForm)}>
+        <form onSubmit={handleSubmit(carForUpdate ? update :save)}>
             <input type="text" placeholder={"brand"} {...register('brand',{
                 pattern: {
                     value:/^[a-zA-Zа-яА-яёЁіІїЇ]{1,20}$/,
