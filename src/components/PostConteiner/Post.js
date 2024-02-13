@@ -1,6 +1,6 @@
 const Post = ({post}) => {
     const {id, userId, title, body}= post;
-    console.log(post);
+
     return (
         <div>
             <div>id:--{id}</div>
