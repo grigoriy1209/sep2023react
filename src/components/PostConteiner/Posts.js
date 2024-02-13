@@ -6,18 +6,16 @@ import {Post} from "./Post";
 const Posts = () => {
     const {state:{postId}} = useLocation();
 
-    const [posts, setPosts] = useState([]);
+    const [post, setPost] = useState([]);
 
     useEffect(() => {
 
-            commentService.getPostsById(postId).then(({data}) => setPosts(data))
+            commentService.getPostsById(postId).then(({data}) => setPost(data))
 
     }, [postId]);
     return (
         <div>
-            {
-                posts.map(post =><Post key={post.id} post={post}/>)
-            }
+            {post && <Post key={post.id} post={post}/>}
         </div>
     );
 };
