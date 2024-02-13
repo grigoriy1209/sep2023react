@@ -1,7 +1,8 @@
 import {useLocation} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {commentService} from "../../services/commentService";
+
 import {Post} from "./Post";
+import {postService} from "../../services/postService";
 
 const Posts = () => {
     const {state:{postId}} = useLocation();
@@ -10,12 +11,12 @@ const Posts = () => {
 
     useEffect(() => {
 
-            commentService.getPostsById(postId).then(({data}) => setPost(data))
+            postService.getPostsById(postId).then(({data}) => setPost(data))
 
     }, [postId]);
     return (
         <div>
-            {post && <Post key={post.id} post={post}/>}
+            {post && <Post post={post}/>}
         </div>
     );
 };
