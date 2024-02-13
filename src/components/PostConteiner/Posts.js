@@ -4,15 +4,15 @@ import {commentService} from "../../services/commentService";
 import {Post} from "./Post";
 
 const Posts = () => {
-    const {state:{commentId}} = useLocation();
+    const {state:{postId}} = useLocation();
 
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
 
-            commentService.getPostsById(commentId).then(({data}) => setPosts(data))
+            commentService.getPostsById(postId).then(({data}) => setPosts(data))
 
-    }, [commentId]);
+    }, [postId]);
     return (
         <div>
             {

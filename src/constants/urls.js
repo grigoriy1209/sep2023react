@@ -1,10 +1,9 @@
-
-
 const baseURL = 'https://jsonplaceholder.typicode.com'
 
 const todos = '/todos'
 const albums= '/albums'
 const comments = '/comments'
+
 
 
 const urls ={
@@ -19,8 +18,14 @@ const urls ={
     comments:{
         base:comments,
         byId:(postId) =>`${comments}/${postId}`,
-        getPostsByCommentId:(userId)=> `${comments}/${userId}/posts`
+    },
+    posts:{
+        getPostsById:(id) => `/posts/${id}`
     }
+
+
+
+
 }
 export {
     baseURL,

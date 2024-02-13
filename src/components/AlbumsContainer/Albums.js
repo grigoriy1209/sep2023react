@@ -12,7 +12,7 @@ const Albums = () => {
     return (
         <div>
             {
-                albums.map(album => <Album key={album.userId} album={album}/>)
+                albums.map(album => <Album key={album.id} album={album}/>)
             }
         </div>
     );
