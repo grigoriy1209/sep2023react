@@ -6,7 +6,7 @@ const CommentPost = () => {
     return (
         <div>
             <Comments/>
-            <Outlet/>
+
         </div>
     );
 };

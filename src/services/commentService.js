@@ -3,8 +3,8 @@ import {urls} from "../constants/urls";
 
 const commentService = {
     getAll:()=>apiService.get(urls.comments.base),
-    getById:(commentId) => apiService(urls.comments.byId(commentId)),
-    getPostsById:(postId) => apiService.get(urls.comments.getPostsByCommentId(postId))
+    getById:(id) => apiService(urls.comments.byId(id)),
+    getPostsById:(commentId) => apiService.get(urls.comments.getPostsByCommentId(commentId))
 }
 export {
     commentService
