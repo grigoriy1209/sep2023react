@@ -1,5 +1,6 @@
+
 const UserDetails = ({userDetails}) => {
-    const {id,name,username, email,phone,website}= userDetails
+    const {id, name,username,email,phone} = userDetails;
     return (
         <div>
             <div>id:{id}</div>
@@ -7,8 +8,6 @@ const UserDetails = ({userDetails}) => {
             <div>username:{username}</div>
             <div>email:{email}</div>
             <div>phone:{phone}</div>
-            <div>website:{website}</div>
-            <button>postInfo</button>
         </div>
     );
 };

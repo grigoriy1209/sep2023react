@@ -1,12 +1,7 @@
 import {createBrowserRouter, Navigate} from "react-router-dom";
 
-import {MainLayout} from "./layouts/MainLayout";
-import {UsersPage} from "./pages/UsersPage";
-import {UserDetailsPage} from "./pages/UserDetailsPage";
-import {userService} from "./services/userService";
-import {PostsPage} from "./pages/PostsPage";
-
-
+import {PostDetailsPage, PostsPage, UserDetailsPage, UsersPage} from "./pages";
+import {MainLayout} from "./layouts";
 const router=createBrowserRouter([
     {
         path:'',element:<MainLayout/>,children:[
@@ -14,16 +9,18 @@ const router=createBrowserRouter([
                 index:true,element:<Navigate to={'users'}/>
             },
             {
-                path:'users', element:<UsersPage/>,loader:()=> userService.getAll(),children:[
+                path:'users',element:<UsersPage/>
+            },
+            {
+                path:'users/:id',element:<UserDetailsPage/>,children:[
                     {
-                        path:':id', element:<UserDetailsPage/>,loader:({params:{id}})=>userService.getById(id),children:[
-                            {
-                                path:'post',element:<PostsPage/>
-                            }
-                        ]
-                    },
+                        path:'posts',element:<PostsPage/>
+                    }
                 ]
             },
+            {
+                path:'posts/:id',element:<PostDetailsPage/>
+            }
 
         ]
     }

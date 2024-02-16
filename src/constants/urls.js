@@ -1,19 +1,20 @@
-const baseURL = 'https://jsonplaceholder.typicode.com'
+const  baseURL= 'https://jsonplaceholder.typicode.com'
 
-const users = '/users'
-const posts = '/posts'
+const users= '/users'
+const posts= '/posts'
 const comments= '/comments'
 
-const urls= {
+const urls={
     users:{
         base:users,
-        byId:(id)=> `${users}/${id}`
+        byId:(id) => `${users}/${id}`
     },
     posts:{
-      getPostsById:(id)=>`/posts/${id}`
+        base:posts,
+        byId:(id)=>`${posts}/${id}`
     },
     comments:{
-        getCommentsById:(postId)=>`/comments/${postId}`
+        base:comments
     }
 }
 export {

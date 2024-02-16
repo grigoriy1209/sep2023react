@@ -1,10 +1,9 @@
 import {apiServices} from "./apiServices";
-import {urls} from "../constants/urls";
-
+import {urls} from "../constants";
 const userService = {
-    getAll:()=>apiServices(urls.users.base),
-    getById:(id) => apiServices(urls.users.byId(id))
+    getAll: () => apiServices.get(urls.users.base),
+    ById: (id) => apiServices.get(urls.users.byId(id))
 }
-export{
+export {
     userService
 }
