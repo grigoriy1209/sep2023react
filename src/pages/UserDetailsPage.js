@@ -9,7 +9,7 @@ const UserDetailsPage = () => {
     const [userDetails, setUserDetails] = useState(null)
 
     useEffect(() => {
-        userService.ById(id).then(({data})=>setUserDetails(id))
+        userService.ById(id).then(({data})=>setUserDetails(data))
     }, [id]);
     return (
         <div>
