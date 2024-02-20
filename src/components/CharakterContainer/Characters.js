@@ -1,9 +1,11 @@
-const App = () => {
+
+const Characters = () => {
+
+
     return (
         <div>
-            App
         </div>
     );
 };
 
-export {App};
+export {Characters};
