@@ -23,7 +23,6 @@ const Episodes = () => {
             return prev
         })
     }
-
     const next = () => {
         setQuery(prev => {
             prev.set('page', (+prev.get('page') + 1).toString())
@@ -31,7 +30,7 @@ const Episodes = () => {
         })
     }
     return (
-        <div>
+        <div >
             {
                 episodes.map(episode => <Episode key={episode.id} episode={episode}/>)
             }
