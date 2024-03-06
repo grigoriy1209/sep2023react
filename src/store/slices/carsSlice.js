@@ -1,15 +1,23 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    cars:[]
+    cars:[],
+    trigger:null,
+    carForUpdate:null
 }
 
 const carsSlice = createSlice({
     name:'carsSlice',
     initialState,
     reducers:{
-        setResponse:(state,action)=>{
-            const {carList}= action.payload
+        setAllCars:(state,action)=>{
+            state.cars= action.payload
+        },
+        trigger:state =>{
+            state.trigger =! state.trigger
+        },
+        setCarForUpdate:(state, action )=>{
+            state.carForUpdate=action.payload
         }
     }
 })

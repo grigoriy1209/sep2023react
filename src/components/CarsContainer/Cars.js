@@ -2,21 +2,21 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 
 import {carService} from "../../services";
-import {carsActions} from "../../store/carsSlice";
+import {carsActions} from "../../store/slices/carsSlice";
 import {Car} from "./Car";
 
 
 const Cars = () => {
     const dispatch = useDispatch();
-    const {cars} = useSelector(state => state.cars);
+    const {cars, trigger} = useSelector(state => state.cars);
 
     useEffect(() => {
-        carService.getAll().then(({data})=>dispatch(carsActions.setResponse(data)))
-    }, [dispatch]);
+        carService.getAll().then(({data})=>dispatch(carsActions.setAllCars(data)))
+    }, [dispatch,trigger]);
     return (
         <div>
             {
-              cars&&  cars.map(car =><Car key={car.id} car={car}/>)
+              cars.map(car =><Car key={car.id} car={car}/>)
             }
         </div>
     );

@@ -1,7 +1,6 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {carsUpdateAction} from "./carsUpdateSlice";
-import {carsCreateActions} from "./carsCreateSlice";
-import {carsReducer} from "./carsSlice";
+
+import {carsReducer} from "./slices/carsSlice";
 
 
 const store = configureStore({
