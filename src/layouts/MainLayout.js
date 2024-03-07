@@ -1,9 +1,10 @@
-import {EpisodePage} from "../pages";
+
+import {Outlet} from "react-router-dom";
 
 const MainLayout = () => {
     return (
         <div>
-            <EpisodePage/>
+            <Outlet/>
         </div>
     );
 };
