@@ -1,7 +1,11 @@
+import { Episodes} from "../components";
+import {EpisodePaginator} from "../components/EpisodesContainer/EpisodePaginator";
+
 const EpisodePage = () => {
     return (
         <div>
-            EpisodePage
+            <Episodes/>
+            <EpisodePaginator/>
         </div>
     );
 };

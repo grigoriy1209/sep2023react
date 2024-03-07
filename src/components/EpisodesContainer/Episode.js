@@ -1,4 +1,4 @@
-const Episode = () => {
+const Episode = ({episode}) => {
     return (
         <div>
             Episode
